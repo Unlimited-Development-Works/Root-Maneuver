@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioSource BackgroundTrack;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BackgroundTrack.Play();
     }
 }
