@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject winFrame;
     public TextMeshProUGUI winText;
+    private bool showWinScreen = false;
 
     void Awake() {
         GameController.nutrientSpawner = GameObject.FindFirstObjectByType<NutrientSpawner>();
@@ -30,6 +31,13 @@ public class GameController : MonoBehaviour
         {
             ResetGame();
         }
+        if (showWinScreen)
+        {
+            if (Input.GetButtonDown("Reset"))
+            {
+                ResetGame();
+            }
+        }
         UpdateScores();
     }
     void UpdateScores()
@@ -45,6 +53,7 @@ public class GameController : MonoBehaviour
 
     public void TimeUp()
     {
+        showWinScreen = true;
         winFrame.SetActive(true);
         if (scores["Player_1"] > scores["Player_2"])
         {
