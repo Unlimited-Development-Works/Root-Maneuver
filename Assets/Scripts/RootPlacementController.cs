@@ -17,7 +17,6 @@ public class RootPlacementController : MonoBehaviour
     public Vector2 spawnLocation;
 
     private GameController gameController;
-    private Transform spawnLocation;
     private Transform lastLocation;
     private List<GameObject> roots = new List<GameObject>();
 
