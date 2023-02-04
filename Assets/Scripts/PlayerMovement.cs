@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown("space") || Input.GetButtonDown(playerName + "_Fire1"))
         {
-            Debug.LogError("space key was pressed");
             isRetracting = true;
         }
 

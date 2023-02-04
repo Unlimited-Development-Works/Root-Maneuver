@@ -34,10 +34,12 @@ public class RootPlacementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
-        if (distance > spawnDistance)
-        {
-            PlantRoot(rootPiece);
+        if (!player.gameObject.GetComponent<PlayerMovement>().isRetracting) {
+            float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
+            if (distance > spawnDistance)
+            {
+                PlantRoot(rootPiece);
+            }
         }
     }
 
@@ -91,8 +93,7 @@ public class RootPlacementController : MonoBehaviour
             return false;
         }*/
 
-        Debug.Log(rootCount);
-        for (int i = rootCount; i > 0; i--)
+        for (int i = rootCount; i > 1; i--)
         {
             if (i == rootCount)
             {
