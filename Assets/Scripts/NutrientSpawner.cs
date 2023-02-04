@@ -44,10 +44,10 @@ public class NutrientSpawner : MonoBehaviour
 
     private (bool, Vector3) RandomSpawnLocationAvoidingPoints(List<Vector3> pointsToAvoid) {
         for (int i=0; i < maxSpawnAttempts; i++) {
-            Vector3 spawnLocation = new Vector3(
+            Vector3 spawnLocation = transform.position + new Vector3(
                 Random.Range(-width/2, width/2),
                 Random.Range(-height/2, height/2),
-                0
+                transform.position.z
             );
             if (!IsPointCloseToOtherPoints2D(spawnLocation, pointsToAvoid)) {
                 // Found a good point
