@@ -14,7 +14,7 @@ public class RootPlacementController : MonoBehaviour
     public float spawnDistance;
     void Start()
     {
-        
+        lastLocation = transform;
     }
 
     void FixedUpdate()
