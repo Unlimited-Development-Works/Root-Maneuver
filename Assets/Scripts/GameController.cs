@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public static NutrientSpawner nutrientSpawner;
+
     public Dictionary<string, int> scores = new Dictionary<string, int>();
     public TextMeshProUGUI scoreText;
+
+    void Awake() {
+        GameController.nutrientSpawner = GameObject.FindFirstObjectByType<NutrientSpawner>();
+    }
+
     void Start()
     {
         scores["Player_1"] = 0;
