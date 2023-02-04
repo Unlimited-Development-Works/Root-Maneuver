@@ -127,9 +127,7 @@ MonoBehaviour:
   roundedX: 0
   roundedY: 0
   rotationSpeed: 5
-  playerName: player2
-  rootController: {fileID: 8733362144731280266}
-  isRetracting: 0
+  playerName: Player_1
 --- !u!114 &8733362144731280266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +176,3 @@ CircleCollider2D:
   m_Offset: {x: -0.09893663, y: -1.9228851}
   serializedVersion: 2
   m_Radius: 0.52571756
-  spawnDistance: 0.35
