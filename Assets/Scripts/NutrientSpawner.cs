@@ -89,5 +89,6 @@ public class NutrientSpawner : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawWireCube(transform.position, new Vector3(width, height, 0));
+        Gizmos.DrawWireSphere(transform.position, avoidRadius);
     }
 }
