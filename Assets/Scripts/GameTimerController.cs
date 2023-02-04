@@ -11,6 +11,7 @@ public class GameTimerController : MonoBehaviour
     private bool timeIsFlowing = false;
     public TextMeshProUGUI timeText;
     public string timerPrefix;
+    public GameController gameController;
     void Start()
     {
         timeRemaining = roundTime;
@@ -32,6 +33,7 @@ public class GameTimerController : MonoBehaviour
                 Debug.Log("Game End");
                 timeRemaining = 0;
                 timeIsFlowing = false;
+                gameController.TimeUp();
             }
         }
     }
@@ -41,5 +43,11 @@ public class GameTimerController : MonoBehaviour
         float minues = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = timerPrefix + string.Format("{0:00}:{1:00}", minues, seconds);
+    }
+
+    public void ResetClock()
+    {
+        timeRemaining = roundTime;
+        timeIsFlowing = true;
     }
 }
