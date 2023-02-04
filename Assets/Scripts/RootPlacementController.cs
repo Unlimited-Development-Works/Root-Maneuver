@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RootPlacementController : MonoBehaviour
@@ -8,7 +10,7 @@ public class RootPlacementController : MonoBehaviour
     public GameObject rootPiece;
     public GameObject rootNutrientPiece;
     private Transform lastLocation;
-    private float distance = 0;
+    private List<GameObject> roots = new List<GameObject>();
     public float spawnDistance;
     void Start()
     {
@@ -17,10 +19,11 @@ public class RootPlacementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
+        float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
         if (distance > spawnDistance)
         {
             GameObject spawnedRoot = Instantiate(rootPiece, player.transform.position, player.transform.rotation);
+            roots.Add(spawnedRoot);
             lastLocation = spawnedRoot.transform;
         }
     }
