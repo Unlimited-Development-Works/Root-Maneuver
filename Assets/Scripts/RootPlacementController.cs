@@ -134,6 +134,11 @@ public class RootPlacementController : MonoBehaviour
             PlantRoot(rootPiece);
 
             return false;
+        } else {
+            if (nutrients > 0) {
+                // Grow sound
+                GetComponent<ChainedSounds>()?.PlayFor(0.5f);
+            }
         }
 
         return true;
