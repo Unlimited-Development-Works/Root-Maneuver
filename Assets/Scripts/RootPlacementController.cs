@@ -23,7 +23,6 @@ public class RootPlacementController : MonoBehaviour
     {
         PlantRoot(rootPiece);
         spawnLocation = transform;
-        PlantRoot();
     }
 
     void FixedUpdate()
