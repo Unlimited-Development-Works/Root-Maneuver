@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public static NutrientSpawner nutrientSpawner;
+
     public Dictionary<string, int> scores = new Dictionary<string, int>();
     public TextMeshProUGUI scoreText;
     public GameObject winFrame;
     public TextMeshProUGUI winText;
+
+    void Awake() {
+        GameController.nutrientSpawner = GameObject.FindFirstObjectByType<NutrientSpawner>();
+    }
+
     void Start()
     {
         scores["Player_1"] = 0;
@@ -31,9 +38,9 @@ public class GameController : MonoBehaviour
         scoreText.text = scoreString;
     }
 
-    public void SetScore(string player, int score)
+    public void AddScore(string player, int score)
     {
-        scores[player] = score;
+        scores[player] += score;
     }
 
     public void TimeUp()

@@ -5,6 +5,8 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public string playerName;
+
     public float moveSpeed;
     public Rigidbody2D rb;
     public float roundedX;
@@ -12,16 +14,19 @@ public class PlayerMovement : MonoBehaviour
 
     public float rotationSpeed;
 
-    public string playerName = "player2";
-
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
+
+    private ChainedSounds sounds;
 
     public RootPlacementController rootController;
 
     public bool isRetracting = false;
 
-    // Update is called once per frame
+    void Start() {
+        sounds = GetComponent<ChainedSounds>();
+    }
+
     void Update()
     {
         ProcessInputs();
@@ -46,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 5;
         }
 
-        if (Input.GetKeyDown("space") || Input.GetButtonDown(playerName + "_Fire1"))
+
+        if (Input.GetButtonDown(playerName + "_Fire1"))
         {
             isRetracting = true;
         }
@@ -61,12 +67,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // sounds?.PlayFor(1f);
             /*            // Do retracting here
                         if (rootController.RetractRoots())
                         {
                             isRetracting = false;
                         }
                         */
+            rb.velocity = Vector2.zero;
             isRetracting = rootController.RetractRoots();
         }
 
@@ -79,13 +87,13 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rotateDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * 300f * Time.deltaTime);
         }
 
     }
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rb.velocity = moveDirection * moveSpeed;
     }
 }

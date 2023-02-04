@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawnerController : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public string playerName = "Player_1";
+    public string playerName;
     public Color playerColor = Color.white;
     void Start()
     {

@@ -148,9 +148,7 @@ MonoBehaviour:
   spawnDistance: 0.2
   nutrients: 0
   playerName: 
-  spawnLocation: {fileID: 6428495496760953572}
-  tweenTime: 0.1
-  retractionFactor: 0.00001
+  spawnLocation: {x: 0, y: 0}
 --- !u!70 &6537145400316763445
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -212,6 +210,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09893663, y: -1.9228851}
+  m_Offset: {x: -0.09893663, y: -3}
   serializedVersion: 2
   m_Radius: 0.52571756

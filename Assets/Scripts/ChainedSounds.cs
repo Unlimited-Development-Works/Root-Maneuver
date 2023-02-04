@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DigSounds : MonoBehaviour
+public class ChainedSounds : MonoBehaviour
 {
     public AudioSource audioSource1;
     public AudioSource audioSource2;
