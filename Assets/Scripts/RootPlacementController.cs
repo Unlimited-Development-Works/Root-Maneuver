@@ -9,15 +9,17 @@ public class RootPlacementController : MonoBehaviour
     public Rigidbody2D player;
     public GameObject rootPiece;
     public GameObject rootNutrientPiece;
-    private Transform lastLocation;
-    private List<GameObject> roots = new List<GameObject>();
     public float spawnDistance;
     public int nutrients = 0;
-    private GameController gameController;
     public string playerName = "";
+    public float tweenTime = 0.01f;
+    public float retractionFactor = 1f;
     public Vector2 spawnLocation;
-    public float tweenTime = 0.1f;
-    public float retractionFactor = 0.00001f;
+
+    private GameController gameController;
+    private Transform spawnLocation;
+    private Transform lastLocation;
+    private List<GameObject> roots = new List<GameObject>();
 
     private int rootCount = 0;
 
@@ -36,10 +38,12 @@ public class RootPlacementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
-        if (distance > spawnDistance)
-        {
-            PlantRoot(rootPiece);
+        if (!player.gameObject.GetComponent<PlayerMovement>().isRetracting) {
+            float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
+            if (distance > spawnDistance)
+            {
+                PlantRoot(rootPiece);
+            }
         }
     }
 
@@ -56,7 +60,7 @@ public class RootPlacementController : MonoBehaviour
 
     void PlantRoot(GameObject rootPrefab)
     {
-        GameObject spawnedRoot = Instantiate(rootPiece, player.transform.position, player.transform.rotation);
+        GameObject spawnedRoot = Instantiate(rootPrefab, player.transform.position, player.transform.rotation);
         
         spawnedRoot.name = "root_" + roots.Count().ToString();
         roots.Add(spawnedRoot);
