@@ -12,13 +12,13 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private float roundedX;
     private float roundedY;
-
     public float rotationSpeed;
+
+    public AudioSource digSoundSource;
+    public List<AudioClip> digClips = new List<AudioClip>();
 
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
-
-    private ChainedSounds sounds;
 
     public RootPlacementController rootController;
 
@@ -86,13 +86,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // sounds?.PlayFor(1f);
-            /*            // Do retracting here
-                        if (rootController.RetractRoots())
-                        {
-                            isRetracting = false;
-                        }
-                        */
             rb.velocity = Vector2.zero;
             isRetracting = rootController.RetractRoots();
             isBoosting = false;
@@ -106,6 +99,10 @@ public class PlayerMovement : MonoBehaviour
         // Used to rotate the sprite to face where it is going
         if (moveDirection != Vector2.zero)
         {
+            if (digSoundSource && !digSoundSource.isPlaying) {
+                digSoundSource.clip = digClips[UnityEngine.Random.Range(0, digClips.Count)];
+                digSoundSource.Play();
+            }
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rotateDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * 300f * Time.deltaTime);
         }
