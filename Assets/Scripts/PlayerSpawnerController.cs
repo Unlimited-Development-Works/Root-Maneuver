@@ -8,6 +8,6 @@ public class PlayerSpawnerController : MonoBehaviour
     public string playerName = "Player_1";
     void Start()
     {
-        spawnedPlayer = Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
+        Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
     }
 }

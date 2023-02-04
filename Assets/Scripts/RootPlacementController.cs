@@ -14,7 +14,7 @@ public class RootPlacementController : MonoBehaviour
     public float spawnDistance;
     void Start()
     {
-        lastLocation = transform;
+        PlantRoot();
     }
 
     void FixedUpdate()
@@ -22,22 +22,25 @@ public class RootPlacementController : MonoBehaviour
         float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
         if (distance > spawnDistance)
         {
-            GameObject spawnedRoot = Instantiate(rootPiece, player.transform.position, player.transform.rotation);
-            roots.Add(spawnedRoot);
-            lastLocation = spawnedRoot.transform;
+            PlantRoot();
         }
     }
 
     public void SetLastLocation(Transform location)
     {
         lastLocation = location;
-        Debug.Log("Set lastLocation to");
-        Debug.Log(lastLocation);
     }
 
     float DistanceBetweenTwoTransforms(Transform source, Transform target)
     {
         Vector2 delta = source.position - target.position;
         return delta.magnitude;
+    }
+
+    void PlantRoot()
+    {
+        GameObject spawnedRoot = Instantiate(rootPiece, player.transform.position, player.transform.rotation);
+        roots.Add(spawnedRoot);
+        lastLocation = spawnedRoot.transform;
     }
 }
