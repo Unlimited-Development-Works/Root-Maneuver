@@ -25,9 +25,12 @@ public class RootPlacementController : MonoBehaviour
 
     void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
         PlantRoot(rootPiece);
         spawnLocation = transform;
+        if (DoesTagExist("Game"))
+        {
+            gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
+        }
     }
 
     void FixedUpdate()
@@ -68,7 +71,10 @@ public class RootPlacementController : MonoBehaviour
             nutrients += 1;
             collision.gameObject.GetComponent<NutrientController>().Collect();
             Debug.Log("Collected Nutrients: " + nutrients.ToString());
-            gameController.SetScore(playerName, nutrients);
+            if (gameController)
+            {
+                gameController.SetScore(playerName, nutrients);
+            }
         }
     }
 
@@ -105,5 +111,18 @@ public class RootPlacementController : MonoBehaviour
             
         }
         return true;
+    }
+
+    public static bool DoesTagExist(string aTag)
+    {
+        try
+        {
+            GameObject.FindGameObjectsWithTag(aTag);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

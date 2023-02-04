@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82f684faa8330b47b4fa2d450f1e7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 14.77
-  height: 6.9
+  width: 17.4
+  height: 5.39
   maxNumberOfNutrients: 50
-  spawnDelaySeconds: 0.1
+  spawnDelaySeconds: 1
   nutrientPrefab: {fileID: 9132591948288262489, guid: 274ae32ce7e1fb345aa74560e2a8bf0a, type: 3}
   avoidTags:
   - Nutrient
+  - Player
+  - Root
   avoidRadius: 0.5
