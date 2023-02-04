@@ -28,7 +28,6 @@ public class RootPlacementController : MonoBehaviour
     {
         PlantRoot(rootPiece);
         spawnLocation = new Vector2(transform.position.x, transform.position.y);
-        Debug.Log("Hello There");
         if (DoesTagExist("Game"))
         {
             gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
