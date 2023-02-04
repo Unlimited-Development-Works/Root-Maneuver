@@ -13,6 +13,7 @@ public class RootPlacementController : MonoBehaviour
     public GameObject rootNutrientPiece;
     public float spawnDistance;
     public int nutrients = 0;
+    public PlantController plantController;
     
     private float tweenTime = 0.2f;
     private float retractionFactor = 0.2f;
@@ -89,6 +90,7 @@ public class RootPlacementController : MonoBehaviour
 
     void BankNutrients() {
         gameController?.AddScore(playerName, nutrients);
+        plantController.AddGrowth(nutrients);
         nutrients = 0;
     }
 
