@@ -8,7 +8,7 @@ public class ChainedSounds : MonoBehaviour
     public AudioSource audioSource2;
     public List<AudioClip> clips = new List<AudioClip>();
     public float crossFadePeriod = 0.1f;
-    public float fadeOutRate = 1f;
+    public float fadeOutPeriod = 0.5f;
     private int currentClipIndex = 0;
     private int currentSourceIndex = 0;
     private AudioSource[] audioSources;
@@ -27,11 +27,7 @@ public class ChainedSounds : MonoBehaviour
     }
 
     public void PlayFor(float seconds) {
-        if (IsPlaying()) {
-            timeRemaining += seconds;
-        } else {
-            timeRemaining = seconds;
-        }
+        timeRemaining = seconds;
     }
 
     public void Stop() {
@@ -45,6 +41,7 @@ public class ChainedSounds : MonoBehaviour
             return;
         }
         if (timeRemaining > 0) {
+            timeRemaining -= Time.deltaTime;
             if (!CurrentSource().isPlaying && !NextSource().isPlaying) {
                 // Start playing
                 CurrentSource().volume = 1;
@@ -77,7 +74,7 @@ public class ChainedSounds : MonoBehaviour
     private void FadeOutSource(AudioSource source) {
         if (source.isPlaying) {
             if (source.volume > 0f) {
-                source.volume = Mathf.Max(source.volume - fadeOutRate * Time.deltaTime, 0f);
+                source.volume = Mathf.Max(source.volume - (1f / fadeOutPeriod) * Time.deltaTime, 0f);
             } else {
                 source.Stop();
             }
