@@ -123,4 +123,4 @@ MonoBehaviour:
   rb: {fileID: 8045365258679113318}
   roundedX: 0
   roundedY: 0
-  rotationSpeed: 1
+  rotationSpeed: 5
