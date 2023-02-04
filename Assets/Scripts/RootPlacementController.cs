@@ -15,7 +15,7 @@ public class RootPlacementController : MonoBehaviour
     public int nutrients = 0;
     private GameController gameController;
     public string playerName = "";
-    public Transform spawnLocation;
+    public Vector2 spawnLocation;
     public float tweenTime = 0.1f;
     public float retractionFactor = 0.00001f;
 
@@ -26,7 +26,8 @@ public class RootPlacementController : MonoBehaviour
     void Start()
     {
         PlantRoot(rootPiece);
-        spawnLocation = transform;
+        spawnLocation = new Vector2(transform.position.x, transform.position.y);
+        Debug.Log("Hello There");
         if (DoesTagExist("Game"))
         {
             gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
@@ -82,10 +83,12 @@ public class RootPlacementController : MonoBehaviour
     {
         rootCount = roots.Count();
 
-        pathDiff = DistanceBetweenTwoTransforms(player.transform, spawnLocation);
+
+        pathDiff = Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), spawnLocation);
         Debug.Log(pathDiff);
 
-        if ( 100f< retractionFactor)
+
+        if (pathDiff < retractionFactor)
         {
             return false;
         }
