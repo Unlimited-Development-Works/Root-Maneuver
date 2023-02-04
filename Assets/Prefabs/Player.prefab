@@ -128,6 +128,8 @@ MonoBehaviour:
   roundedY: 0
   rotationSpeed: 5
   playerName: Player_1
+  rootController: {fileID: 8733362144731280266}
+  isRetracting: 0
 --- !u!114 &8733362144731280266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,10 @@ MonoBehaviour:
   rootNutrientPiece: {fileID: 328962309842797734, guid: 707e0107272af7a43baa984fef29cc7c, type: 3}
   spawnDistance: 0.3
   nutrients: 0
+  playerName: 
+  spawnLocation: {fileID: 6428495496760953572}
+  tweenTime: 0.1
+  retractionFactor: 0.00001
 --- !u!70 &6537145400316763445
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

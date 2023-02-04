@@ -21,6 +21,8 @@ public class RootPlacementController : MonoBehaviour
 
     private int rootCount = 0;
 
+    private float pathDiff; 
+
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
@@ -73,11 +75,14 @@ public class RootPlacementController : MonoBehaviour
     public bool RetractRoots()
     {
         rootCount = roots.Count();
-        
-/*        if (DistanceBetweenTwoTransforms(player.transform, spawnLocation) < retractionFactor)
+
+        pathDiff = DistanceBetweenTwoTransforms(player.transform, spawnLocation);
+        Debug.Log(pathDiff);
+
+        if ( 100f< retractionFactor)
         {
             return false;
-        }*/
+        }
 
 
         for (int i = rootCount; i > 0; i--)
@@ -99,7 +104,6 @@ public class RootPlacementController : MonoBehaviour
             }
             
         }
-
         return true;
     }
 }
