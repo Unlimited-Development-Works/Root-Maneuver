@@ -81,6 +81,7 @@ public class NutrientSpawner : MonoBehaviour
 
         // Spawn nutrient
         GameObject nutrient = Instantiate(nutrientPrefab, spawnLocation, Quaternion.identity);
+
         numberOfNutrients += 1;
         nutrient.name = "Nutrient " + numberOfNutrients;
     }

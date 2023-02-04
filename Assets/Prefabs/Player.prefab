@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 5c118e6cd5920064bb999fa9f13f129f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,6 +125,9 @@ MonoBehaviour:
   roundedX: 0
   roundedY: 0
   rotationSpeed: 5
+  playerName: player2
+  rootController: {fileID: 8733362144731280266}
+  isRetracting: 0
 --- !u!114 &8733362144731280266
 MonoBehaviour:
   m_ObjectHideFlags: 0

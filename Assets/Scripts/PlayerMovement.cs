@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
 
+    public RootPlacementController rootController;
+
+    public bool isRetracting = false;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInputs()
     {
+        
         // Check public values and set defaults
         if (rotationSpeed == 0)
         {
@@ -42,12 +46,30 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 5;
         }
 
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.LogError("space key was pressed");
+            isRetracting = true;
+        }
 
-        float moveX = Input.GetAxisRaw(playerName + "_Horizontal");
-        roundedX = (int)Math.Round(moveX, 0);
+        if (!isRetracting)
+        {
+            float moveX = Input.GetAxisRaw(playerName + "_Horizontal");
+            roundedX = (int)Math.Round(moveX, 0);
 
-        float moveY = Input.GetAxisRaw(playerName + "_Vertical");
-        roundedY = (int)Math.Round(moveY, 0);
+            float moveY = Input.GetAxisRaw(playerName + "_Vertical");
+            roundedY = (int)Math.Round(moveY, 0);
+        }
+        else
+        {
+            /*            // Do retracting here
+                        if (rootController.RetractRoots())
+                        {
+                            isRetracting = false;
+                        }
+                        */
+            isRetracting = rootController.RetractRoots();
+        }
 
         moveDirection = new Vector2(roundedX, roundedY).normalized;
 
@@ -60,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rotateDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
         }
-
 
     }
 
