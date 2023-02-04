@@ -8,6 +8,9 @@ public class PlayerSpawnerController : MonoBehaviour
     public string playerName = "Player_1";
     void Start()
     {
-        Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
+        GameObject player =Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
+        player.GetComponent<PlayerMovement>().playerName = playerName;
+        player.name = playerName;
+
     }
 }

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float rotationSpeed;
 
+    public string playerName = "player2";
 
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
@@ -42,10 +43,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveX = Input.GetAxisRaw(playerName + "_Horizontal");
         roundedX = (int)Math.Round(moveX, 0);
 
-        float moveY = Input.GetAxisRaw("Vertical");
+        float moveY = Input.GetAxisRaw(playerName + "_Vertical");
         roundedY = (int)Math.Round(moveY, 0);
 
         moveDirection = new Vector2(roundedX, roundedY).normalized;
