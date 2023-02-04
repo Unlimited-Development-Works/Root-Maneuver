@@ -78,6 +78,15 @@ public class RootPlacementController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Root"))
+        {
+            player.gameObject.GetComponent<PlayerMovement>().isRetracting = true;
+            RetractRoots();
+        }
+    }
+
     void BankNutrients() {
         gameController?.AddScore(playerName, nutrients);
         nutrients = 0;
