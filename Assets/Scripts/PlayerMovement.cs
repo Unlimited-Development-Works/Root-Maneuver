@@ -11,15 +11,10 @@ public class PlayerMovement : MonoBehaviour
     public float roundedY;
 
     public float rotationSpeed;
-    public bool isXFlipped = false;
-    public bool isYFlipped = false;
 
 
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
-
-    private float rotateX;
-    private float rotateY;
 
 
     // Update is called once per frame
@@ -55,22 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(roundedX, roundedY).normalized;
 
-        // flip axis for sprites
-        rotateX = roundedX;
-        rotateY = roundedY;
-        if (isXFlipped)
-        {
-            rotateX = -roundedX;
-        }
+        // Using minus rotation because the sprite is facing down so everything needs to be reversed 
+        rotateDirection = new Vector2(-roundedX, -roundedY).normalized;
 
-        if (isYFlipped)
-        {
-            rotateY = -roundedY;
-        }
-        rotateDirection = new Vector2(rotateX, rotateY).normalized;
-
-
-
+        // Used to rotate the sprite to face where it is going
         if (moveDirection != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, rotateDirection);
