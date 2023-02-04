@@ -16,8 +16,8 @@ public class RootPlacementController : MonoBehaviour
     private GameController gameController;
     public string playerName = "";
     public Transform spawnLocation;
-    public float tweenTime = 0.01f;
-    public float retractionFactor = 1f;
+    public float tweenTime = 0.1f;
+    public float retractionFactor = 0.00001f;
 
     private int rootCount = 0;
 
@@ -73,27 +73,31 @@ public class RootPlacementController : MonoBehaviour
     public bool RetractRoots()
     {
         rootCount = roots.Count();
-        Vector2 location = spawnLocation.position;
-        Vector2 delta = player.position - location;
         
-
-
-/*        if (delta.magnitude < retractionFactor)
+/*        if (DistanceBetweenTwoTransforms(player.transform, spawnLocation) < retractionFactor)
         {
-            Debug.Log("got here");
             return false;
         }*/
 
-        Debug.Log(rootCount);
+
         for (int i = rootCount; i > 0; i--)
         {
+
             if (i == rootCount)
             {
+                Debug.Log("hello");
                 player.transform.position = Vector3.Lerp(player.transform.position, roots[i - 1].transform.position, tweenTime);
                 player.transform.rotation = Quaternion.Slerp(player.transform.rotation, roots[i - 1].transform.rotation, tweenTime);
             }
-            roots[i-1].transform.position = Vector3.Lerp(roots[i-1].transform.position, roots[i-2].transform.position, tweenTime);
-            roots[i-1].transform.rotation = Quaternion.Slerp(roots[i-1].transform.rotation, roots[i-2].transform.rotation, tweenTime);
+
+            else
+            { 
+
+                roots[i].transform.position = Vector3.Lerp(roots[i].transform.position, roots[i - 1].transform.position, tweenTime);
+                roots[i].transform.rotation = Quaternion.Slerp(roots[i].transform.rotation, roots[i - 1].transform.rotation, tweenTime);
+                
+            }
+            
         }
 
         return true;
