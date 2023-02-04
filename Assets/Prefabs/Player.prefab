@@ -126,7 +126,7 @@ MonoBehaviour:
   rb: {fileID: 8045365258679113318}
   roundedX: 0
   roundedY: 0
-  rotationSpeed: 1
+  rotationSpeed: 1.5
   playerName: Player_1
   rootController: {fileID: 8733362144731280266}
   isRetracting: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   player: {fileID: 8045365258679113318}
   rootPiece: {fileID: 2552678951119781789, guid: 580bfea2b5d0cd948b02b24e087505f7, type: 3}
   rootNutrientPiece: {fileID: 328962309842797734, guid: 707e0107272af7a43baa984fef29cc7c, type: 3}
-  spawnDistance: 0.3
+  spawnDistance: 0.2
   nutrients: 0
   playerName: 
   tweenTime: 0.01
