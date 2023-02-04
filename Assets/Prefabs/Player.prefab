@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5554645733383663983}
   - component: {fileID: 8045365258679113318}
   - component: {fileID: -8488544152124598268}
+  - component: {fileID: 8733362144731280266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -124,3 +125,19 @@ MonoBehaviour:
   roundedX: 0
   roundedY: 0
   rotationSpeed: 5
+--- !u!114 &8733362144731280266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811656901716386836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693d79a0eea6ffd418ff25f67e952020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8045365258679113318}
+  rootPiece: {fileID: 2552678951119781789, guid: 580bfea2b5d0cd948b02b24e087505f7, type: 3}
+  rootNutrientPiece: {fileID: 328962309842797734, guid: 707e0107272af7a43baa984fef29cc7c, type: 3}
+  spawnDistance: 0.35
