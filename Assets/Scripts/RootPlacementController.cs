@@ -12,8 +12,8 @@ public class RootPlacementController : MonoBehaviour
     public float spawnDistance;
     public int nutrients = 0;
     public string playerName = "";
-    public float tweenTime = 0.01f;
-    public float retractionFactor = 1f;
+    private float tweenTime = 0.2f;
+    private float retractionFactor = 0.2f;
     public Vector2 spawnLocation;
 
     private GameController gameController;
@@ -21,8 +21,6 @@ public class RootPlacementController : MonoBehaviour
     private List<GameObject> roots = new List<GameObject>();
 
     private int rootCount = 0;
-
-    private float pathDiff; 
 
     void Start()
     {
@@ -87,22 +85,21 @@ public class RootPlacementController : MonoBehaviour
         rootCount = roots.Count();
 
 
-        pathDiff = Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), spawnLocation);
-        Debug.Log(pathDiff);
+/*        float pathDiff = Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), spawnLocation);
 
 
         if (pathDiff < retractionFactor)
         {
             return false;
-        }
+        }*/
 
+        bool allAtCenter = true;
 
         for (int i = rootCount; i > 0; i--)
         {
 
             if (i == rootCount)
             {
-                Debug.Log("hello");
                 player.transform.position = Vector3.Lerp(player.transform.position, roots[i - 1].transform.position, tweenTime);
                 player.transform.rotation = Quaternion.Slerp(player.transform.rotation, roots[i - 1].transform.rotation, tweenTime);
             }
@@ -112,10 +109,31 @@ public class RootPlacementController : MonoBehaviour
 
                 roots[i].transform.position = Vector3.Lerp(roots[i].transform.position, roots[i - 1].transform.position, tweenTime);
                 roots[i].transform.rotation = Quaternion.Slerp(roots[i].transform.rotation, roots[i - 1].transform.rotation, tweenTime);
-                
+
+                float pathDiff = Vector2.Distance(new Vector2(roots[i].transform.position.x, roots[i].transform.position.y), spawnLocation);
+                if (pathDiff > retractionFactor)
+                {
+                    allAtCenter = false;
+                }
+
+
             }
-            
+
         }
+
+        if (allAtCenter)
+        {
+            foreach(GameObject root in roots)
+            {
+                Destroy(root);
+            }
+            roots.Clear();
+            player.transform.position = spawnLocation;
+            PlantRoot(rootPiece);
+
+            return false;
+        }
+
         return true;
     }
 
