@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public string playerName;
 
     public float moveSpeed;
+    private float boostValue = 3;
     public Rigidbody2D rb;
-    public float roundedX;
-    public float roundedY;
+    private float roundedX;
+    private float roundedY;
 
     public float rotationSpeed;
 
@@ -22,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public RootPlacementController rootController;
 
     public bool isRetracting = false;
+
+    public bool isBoosting = false;
+    private float boostStart;
+    private float boostDuration = 1;
+    private float boostCoolDown = 5;
+    private float boostEnd = -5;
 
     void Start() {
         sounds = GetComponent<ChainedSounds>();
@@ -64,6 +71,18 @@ public class PlayerMovement : MonoBehaviour
 
             float moveY = Input.GetAxisRaw(playerName + "_Vertical");
             roundedY = (int)Math.Round(moveY, 0);
+
+            // trigger boost
+            if (Input.GetButtonDown(playerName + "_Fire2"))
+            {
+                float boostCooldownLeft = Time.time - boostEnd;
+                if (boostCoolDown < boostCooldownLeft)
+                {
+                    isBoosting = true;
+                    boostStart = Time.time;
+                }
+
+            }
         }
         else
         {
@@ -76,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
                         */
             rb.velocity = Vector2.zero;
             isRetracting = rootController.RetractRoots();
+            isBoosting = false;
         }
 
         moveDirection = new Vector2(roundedX, roundedY).normalized;
@@ -94,6 +114,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = moveDirection * moveSpeed;
+        if (isBoosting)
+        {
+            rb.velocity = moveDirection * moveSpeed * boostValue;
+            float boostLength = Time.time - boostStart;
+            if (boostLength > boostDuration)
+            {
+                isBoosting = false;
+                boostEnd = Time.time;
+            }
+        } 
+        else
+        {
+            rb.velocity = moveDirection * moveSpeed;
+        }
+        
+
+       
     }
 }
