@@ -10,6 +10,7 @@ public class PlayerSpawnerController : MonoBehaviour
     {
         GameObject player =Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
         player.GetComponent<PlayerMovement>().playerName = playerName;
+        player.GetComponent<RootPlacementController>().playerName = playerName;
         player.name = playerName;
 
     }

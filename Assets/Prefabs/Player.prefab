@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 5c118e6cd5920064bb999fa9f13f129f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   rootPiece: {fileID: 2552678951119781789, guid: 580bfea2b5d0cd948b02b24e087505f7, type: 3}
   rootNutrientPiece: {fileID: 328962309842797734, guid: 707e0107272af7a43baa984fef29cc7c, type: 3}
   spawnDistance: 0.3
+  nutrients: 0
 --- !u!70 &6537145400316763445
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
