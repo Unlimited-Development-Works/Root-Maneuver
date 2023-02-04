@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec90a2d3a79cae4fa1e7a6dc6cc866c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   rb: {fileID: 8045365258679113318}
   roundedX: 0
   roundedY: 0
-  rotationSpeed: 5
+  rotationSpeed: 1
   playerName: Player_1
   rootController: {fileID: 8733362144731280266}
   isRetracting: 0
