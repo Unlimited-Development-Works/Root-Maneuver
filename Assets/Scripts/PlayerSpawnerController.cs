@@ -6,8 +6,11 @@ public class PlayerSpawnerController : MonoBehaviour
 {
     public GameObject playerPrefab;
     public string playerName = "Player_1";
+    private GameObject spawnedPlayer;
     void Start()
     {
-        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        spawnedPlayer = Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
+        RootPlacementController playerRootPlacementController = spawnedPlayer.GetComponent<RootPlacementController>();
+        playerRootPlacementController.SetLastLocation(gameObject.transform);
     }
 }
