@@ -127,7 +127,7 @@ MonoBehaviour:
   roundedX: 0
   roundedY: 0
   rotationSpeed: 5
-  playerName: player2
+  playerName: Player_1
 --- !u!114 &8733362144731280266
 MonoBehaviour:
   m_ObjectHideFlags: 0
