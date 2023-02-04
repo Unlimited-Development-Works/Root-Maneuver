@@ -13,6 +13,8 @@ public class RootPlacementController : MonoBehaviour
     private List<GameObject> roots = new List<GameObject>();
     public float spawnDistance;
     public int nutrients = 0;
+    private GameController gameController;
+    public string playerName = "";
     public Transform spawnLocation;
     public float tweenTime = 0.01f;
     public float retractionFactor = 1f;
@@ -21,6 +23,7 @@ public class RootPlacementController : MonoBehaviour
 
     void Start()
     {
+        gameController = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
         PlantRoot(rootPiece);
         spawnLocation = transform;
     }
@@ -63,6 +66,7 @@ public class RootPlacementController : MonoBehaviour
             nutrients += 1;
             collision.gameObject.GetComponent<NutrientController>().Collect();
             Debug.Log("Collected Nutrients: " + nutrients.ToString());
+            gameController.SetScore(playerName, nutrients);
         }
     }
 
