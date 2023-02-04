@@ -72,6 +72,7 @@ public class RootPlacementController : MonoBehaviour
         if (collision.gameObject.CompareTag("Nutrient"))
         {
             PlantRoot(rootNutrientPiece);
+            GameController.nutrientSpawner?.NutrientConsumed();
             nutrients += 1;
             collision.gameObject.GetComponent<NutrientController>().Collect();
             Debug.Log("Collected Nutrients: " + nutrients.ToString());

@@ -86,6 +86,12 @@ public class NutrientSpawner : MonoBehaviour
         nutrient.name = "Nutrient " + numberOfNutrients;
     }
 
+    public void NutrientConsumed() {
+        if (numberOfNutrients > 0) {
+            numberOfNutrients -= 1;
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
