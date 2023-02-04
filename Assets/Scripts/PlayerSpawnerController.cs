@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerSpawnerController : MonoBehaviour
 {
-    public GameObject PlayerPrefab;
-    public string PlayerName = "Player_1";
+    public GameObject playerPrefab;
+    public string playerName = "Player_1";
     void Start()
     {
-        Instantiate(PlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

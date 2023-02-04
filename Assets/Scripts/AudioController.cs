@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource BackgroundTrack;
+    public AudioSource backgroundTrack;
     void Start()
     {
-        BackgroundTrack.Play();
+        backgroundTrack.Play();
     }
 }
