@@ -17,11 +17,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
 
+    private ChainedSounds sounds;
+
     public RootPlacementController rootController;
 
     public bool isRetracting = false;
 
-    // Update is called once per frame
+    void Start() {
+        sounds = GetComponent<ChainedSounds>();
+    }
+
     void Update()
     {
         ProcessInputs();
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 5;
         }
 
+
         if (Input.GetKeyDown("space") || Input.GetButtonDown(playerName + "_Fire1"))
         {
             isRetracting = true;
@@ -61,12 +67,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // sounds?.PlayFor(1f);
             /*            // Do retracting here
                         if (rootController.RetractRoots())
                         {
                             isRetracting = false;
                         }
                         */
+            rb.velocity = Vector2.zero;
             isRetracting = rootController.RetractRoots();
         }
 

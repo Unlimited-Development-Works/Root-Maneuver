@@ -73,25 +73,17 @@ public class RootPlacementController : MonoBehaviour
             nutrients += 1;
             collision.gameObject.GetComponent<NutrientController>().Collect();
             Debug.Log("Collected Nutrients: " + nutrients.ToString());
-            if (gameController)
-            {
-                gameController.SetScore(playerName, nutrients);
-            }
         }
+    }
+
+    void BankNutrients() {
+        gameController?.SetScore(playerName, nutrients);
+        nutrients = 0;
     }
 
     public bool RetractRoots()
     {
         rootCount = roots.Count();
-
-
-/*        float pathDiff = Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.y), spawnLocation);
-
-
-        if (pathDiff < retractionFactor)
-        {
-            return false;
-        }*/
 
         bool allAtCenter = true;
 
@@ -106,7 +98,6 @@ public class RootPlacementController : MonoBehaviour
 
             else
             { 
-
                 roots[i].transform.position = Vector3.Lerp(roots[i].transform.position, roots[i - 1].transform.position, tweenTime);
                 roots[i].transform.rotation = Quaternion.Slerp(roots[i].transform.rotation, roots[i - 1].transform.rotation, tweenTime);
 
@@ -115,14 +106,12 @@ public class RootPlacementController : MonoBehaviour
                 {
                     allAtCenter = false;
                 }
-
-
             }
-
         }
 
         if (allAtCenter)
         {
+            BankNutrients();
             foreach(GameObject root in roots)
             {
                 Destroy(root);
