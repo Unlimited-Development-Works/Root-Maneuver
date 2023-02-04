@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour
         scoreText.text = scoreString;
     }
 
-    public void SetScore(string player, int score)
+    public void AddScore(string player, int score)
     {
-        scores[player] = score;
+        scores[player] += score;
     }
 }

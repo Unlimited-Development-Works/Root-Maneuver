@@ -5,14 +5,14 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public string playerName;
+
     public float moveSpeed;
     public Rigidbody2D rb;
     public float roundedX;
     public float roundedY;
 
     public float rotationSpeed;
-
-    public string playerName = "player2";
 
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("space") || Input.GetButtonDown(playerName + "_Fire1"))
+        if (Input.GetButtonDown(playerName + "_Fire1"))
         {
             isRetracting = true;
         }

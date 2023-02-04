@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class RootPlacementController : MonoBehaviour
 {
+    public string playerName;
+
     public Rigidbody2D player;
     public GameObject rootPiece;
     public GameObject rootNutrientPiece;
     public float spawnDistance;
     public int nutrients = 0;
-    public string playerName = "";
+    
     private float tweenTime = 0.2f;
     private float retractionFactor = 0.2f;
     public Vector2 spawnLocation;
@@ -77,7 +79,7 @@ public class RootPlacementController : MonoBehaviour
     }
 
     void BankNutrients() {
-        gameController?.SetScore(playerName, nutrients);
+        gameController?.AddScore(playerName, nutrients);
         nutrients = 0;
     }
 
