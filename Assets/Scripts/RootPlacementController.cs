@@ -12,6 +12,7 @@ public class RootPlacementController : MonoBehaviour
     private Transform lastLocation;
     private List<GameObject> roots = new List<GameObject>();
     public float spawnDistance;
+    public int nutrients = 0;
     public Transform spawnLocation;
     public float tweenTime = 0.01f;
     public float retractionFactor = 1f;
@@ -20,6 +21,7 @@ public class RootPlacementController : MonoBehaviour
 
     void Start()
     {
+        PlantRoot(rootPiece);
         spawnLocation = transform;
         PlantRoot();
     }
@@ -29,7 +31,7 @@ public class RootPlacementController : MonoBehaviour
         float distance = DistanceBetweenTwoTransforms(player.transform, lastLocation);
         if (distance > spawnDistance)
         {
-            PlantRoot();
+            PlantRoot(rootPiece);
         }
     }
 
@@ -44,7 +46,7 @@ public class RootPlacementController : MonoBehaviour
         return delta.magnitude;
     }
 
-    void PlantRoot()
+    void PlantRoot(GameObject rootPrefab)
     {
         GameObject spawnedRoot = Instantiate(rootPiece, player.transform.position, player.transform.rotation);
         
@@ -52,6 +54,17 @@ public class RootPlacementController : MonoBehaviour
         roots.Add(spawnedRoot);
 
         lastLocation = spawnedRoot.transform;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Nutrient"))
+        {
+            PlantRoot(rootNutrientPiece);
+            nutrients += 1;
+            collision.gameObject.GetComponent<NutrientController>().Collect();
+            Debug.Log("Collected Nutrients: " + nutrients.ToString());
+        }
     }
 
     public bool RetractRoots()

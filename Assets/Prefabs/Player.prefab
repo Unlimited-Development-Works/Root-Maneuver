@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8045365258679113318}
   - component: {fileID: -8488544152124598268}
   - component: {fileID: 8733362144731280266}
+  - component: {fileID: 6537145400316763445}
+  - component: {fileID: 7080307461461487802}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -106,7 +108,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-8488544152124598268
 MonoBehaviour:
@@ -143,4 +145,37 @@ MonoBehaviour:
   player: {fileID: 8045365258679113318}
   rootPiece: {fileID: 2552678951119781789, guid: 580bfea2b5d0cd948b02b24e087505f7, type: 3}
   rootNutrientPiece: {fileID: 328962309842797734, guid: 707e0107272af7a43baa984fef29cc7c, type: 3}
+  spawnDistance: 0.3
+--- !u!70 &6537145400316763445
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811656901716386836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.082440674, y: 0.14132768}
+  m_Size: {x: 3.6269212, y: 4.657347}
+  m_Direction: 0
+--- !u!58 &7080307461461487802
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811656901716386836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09893663, y: -1.9228851}
+  serializedVersion: 2
+  m_Radius: 0.52571756
   spawnDistance: 0.35
