@@ -159,3 +159,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a467b610546788d4ba95c4a87afd5ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionClips:
+  - {fileID: 8300000, guid: 2085aa604b240784fb8b7efb9fb2c437, type: 3}
+  - {fileID: 8300000, guid: 79a64ec4065babd4ba2497f40e536b6c, type: 3}
+  - {fileID: 8300000, guid: 9965f0e8b8e6455439a347e10a99e432, type: 3}
+  - {fileID: 8300000, guid: bbf21b30d50948142ada7ae4980b0aa1, type: 3}
+  - {fileID: 8300000, guid: ba936950bf9470d4298b9f4c2b5c26f6, type: 3}
+  - {fileID: 8300000, guid: b77fc470d82d1b44a82df5176bbfec50, type: 3}
+  - {fileID: 8300000, guid: 9c66c2cb2b4861548be7cf2c8c423912, type: 3}
+  - {fileID: 8300000, guid: 7c022a4e1ff0b7a48bbe99e77d15d16e, type: 3}
+  - {fileID: 8300000, guid: 87474e62be760114191f08e064edf1e6, type: 3}
+  - {fileID: 8300000, guid: 9c0f5be5de20c684288addbc216a7a1f, type: 3}
+  - {fileID: 8300000, guid: 66d956f5ef1fd7c4eb8518fae0bbd58f, type: 3}
+  - {fileID: 8300000, guid: 150a0d4c829450b40a58dfdacb25fb8b, type: 3}
+  - {fileID: 8300000, guid: 5e7933f6372bbde43aea5ebf2bdac9cc, type: 3}
+  - {fileID: 8300000, guid: 108196f331f59144e8e4d76cd6a846f4, type: 3}
+  - {fileID: 8300000, guid: f7ac40db775344c45bfba5fbb4b4e2d8, type: 3}
+  - {fileID: 8300000, guid: a1e19a2744ebe0448bd215f8524878a2, type: 3}
+  - {fileID: 8300000, guid: cb26a079a90dfe943a9ab8eb30371405, type: 3}
+  - {fileID: 8300000, guid: bda3dfb724e7a7d4eacff2e8efb8e8a3, type: 3}
+  - {fileID: 8300000, guid: 5736787b7f53a0643bb87161dded86e2, type: 3}
+  - {fileID: 8300000, guid: ef07144aed6def140a76f58081fe070e, type: 3}
+  - {fileID: 8300000, guid: f33939ba02191b64090b4c1ef46d6df3, type: 3}
+  - {fileID: 8300000, guid: 260298fd4deeb6a4dac007ca46cfb89b, type: 3}
+  - {fileID: 8300000, guid: 2ff5fb1a68c1c8d49aeaad763513c2af, type: 3}
+  collectionSoundSource: {fileID: 0}

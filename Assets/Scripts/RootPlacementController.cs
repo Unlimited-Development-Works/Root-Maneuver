@@ -76,6 +76,7 @@ public class RootPlacementController : MonoBehaviour
             nutrients += 1;
             collision.gameObject.GetComponent<NutrientController>().Collect();
             Debug.Log("Collected Nutrients: " + nutrients.ToString());
+            player.gameObject.GetComponent<PlayerMovement>().PlayCollectEffects();
         }
     }
 

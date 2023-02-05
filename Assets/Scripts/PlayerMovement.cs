@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource digSoundSource;
     public List<AudioClip> digClips = new List<AudioClip>();
 
+    public AudioSource collectionSoundSource;
+    public List<AudioClip> collectionClips = new List<AudioClip>();
+
     public AudioSource boostSoundSource;
     public List<AudioClip> boostClips = new List<AudioClip>();
     public AudioClip hitRootClip;
@@ -127,6 +130,13 @@ public class PlayerMovement : MonoBehaviour
     public void PlayHitEffects() {
         boostSoundSource?.PlayOneShot(hitRootClip);
         GameController.screenshake.Shake(0.3f, 0.3f);
+    }
+
+    public void PlayCollectEffects()
+    {
+        // playcollection sound
+        Debug.Log("playing collion sound");
+        collectionSoundSource.PlayOneShot(collectionClips[UnityEngine.Random.Range(0, collectionClips.Count)]);
     }
 
     void Move()
