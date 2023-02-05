@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     {
         scores["Player_1"] = 0;
         scores["Player_2"] = 0;
+        scores["Player_3"] = 0;
         winFrame.SetActive(false);
         PutColliders();
     }
@@ -45,7 +46,7 @@ public class GameController : MonoBehaviour
     }
     void UpdateScores()
     {
-        string scoreString = "Player 1: " + scores["Player_1"] + "\n" + "Player 2: " + scores["Player_2"];
+        string scoreString = "Player 1: " + scores["Player_1"] + "\n" + "Player 2: " + scores["Player_2"] + "\n" + "Player 3: " + scores["Player_3"];
         scoreText.text = scoreString;
     }
 
@@ -58,17 +59,29 @@ public class GameController : MonoBehaviour
     {
         showWinScreen = true;
         winFrame.SetActive(true);
-        if (scores["Player_1"] > scores["Player_2"])
-        {
-            winText.text = "Player 1 Wins!";
+        int maxScore = Mathf.Max(scores["Player_1"], scores["Player_2"], scores["Player_3"]);
+        List<string> winners = new List<string>();
+        if (scores["Player_1"] == maxScore) {
+            winners.Add("Player 1");
         }
-        if (scores["Player_1"] < scores["Player_2"])
-        {
-            winText.text = "Player 2 Wins!";
+        if (scores["Player_2"] == maxScore) {
+            winners.Add("Player 2");
         }
-        if (scores["Player_1"] == scores["Player_2"])
-        {
-            winText.text = "Tie!";
+        if (scores["Player_3"] == maxScore) {
+            winners.Add("Player 3");
+        }
+
+        if (winners.Count == 1) {
+            winText.text = winners[0] + " Wins!";
+        } else if (winners.Count == 2) {
+            winText.text = winners[0] + " and " + winners[1] + " Win in a Tie!";
+        } else {
+            string label = "";
+            for (int i=0; i<winners.Count-1; i++) {
+                label += winners[i] + ", ";
+            }
+            label += " and " + winners[winners.Count-1] + "Win in a Tie!";
+            winText.text = label;
         }
         //Time.timeScale = 0;
     }
