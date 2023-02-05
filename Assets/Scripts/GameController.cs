@@ -84,11 +84,11 @@ public class GameController : MonoBehaviour
         GameObject left = new GameObject("LeftCollider", typeof(BoxCollider2D), typeof(Rigidbody2D));
         left.layer = 6;
         left.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        GameObject right = new GameObject("RightCollider", typeof(BoxCollider2D));
+        GameObject right = new GameObject("RightCollider", typeof(BoxCollider2D), typeof(Rigidbody2D));
         right.layer = 6;
         right.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         //GameObject top = new GameObject("TopCollider", typeof(BoxCollider2D));
-        GameObject bottom = new GameObject("BottomCollider", typeof(BoxCollider2D));
+        GameObject bottom = new GameObject("BottomCollider", typeof(BoxCollider2D), typeof(Rigidbody2D));
         bottom.layer = 6;
         bottom.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         Camera mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
