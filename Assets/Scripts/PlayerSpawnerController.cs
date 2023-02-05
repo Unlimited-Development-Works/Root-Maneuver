@@ -21,6 +21,11 @@ public class PlayerSpawnerController : MonoBehaviour
         player.GetComponent<RootPlacementController>().plantController = spawnedPlant.GetComponent<PlantController>();
         player.name = playerName;
         player.GetComponent<SpriteRenderer>().color = playerColor;
+        if (playerName == "Player_2")
+        {
+            boostText.alignment = TextAlignmentOptions.TopRight;
+        }
+        
     }
 
     void Update()
