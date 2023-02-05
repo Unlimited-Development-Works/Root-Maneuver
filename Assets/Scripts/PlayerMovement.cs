@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isRetracting = false;
 
     public bool isBoosting = false;
+    public bool canBoost = true;
     private float boostStart;
     private float boostDuration = 1;
     private float boostCoolDown = 5;
@@ -80,14 +81,16 @@ public class PlayerMovement : MonoBehaviour
             float moveY = Input.GetAxisRaw(playerName + "_Vertical");
             roundedY = (int)Math.Round(moveY, 0);
 
+            float boostCooldownLeft = (float)Math.Round(Time.time, 2) - boostEnd + 1.1f;
+            canBoost = boostCoolDown < boostCooldownLeft;
+
             // trigger boost
             if (Input.GetButtonDown(playerName + "_Fire2"))
             {
-                float boostCooldownLeft = Time.time - boostEnd;
-                if (boostCoolDown < boostCooldownLeft)
+                if (canBoost)
                 {
                     isBoosting = true;
-                    boostStart = Time.time;
+                    boostStart = (float)Math.Round(Time.time, 2);
                     if (boostSoundSource && !boostSoundSource.isPlaying) {
                         boostSoundSource.clip = boostClips[UnityEngine.Random.Range(0, boostClips.Count)];
                         boostSoundSource.Play();
@@ -139,11 +142,12 @@ public class PlayerMovement : MonoBehaviour
                     digParticles.Play();
                 }
             }
-            float boostLength = Time.time - boostStart;
+            float boostLength = (float)Math.Round(Time.time, 2) - boostStart;
             if (boostLength > boostDuration)
             {
+                canBoost = false;
                 isBoosting = false;
-                boostEnd = Time.time;
+                boostEnd = (float)Math.Round(Time.time, 2);
             }
         } 
         else
