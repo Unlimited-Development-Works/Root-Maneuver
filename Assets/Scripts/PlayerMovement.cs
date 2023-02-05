@@ -116,8 +116,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void PlayRetractingSound() {
+    public void PlayHitEffects() {
         boostSoundSource?.PlayOneShot(hitRootClip);
+        GameController.screenshake.Shake(0.3f, 0.3f);
     }
 
     void Move()
