@@ -101,9 +101,6 @@ public class GameController : MonoBehaviour
         Vector2 leftBottomCorner = mainCamera.ViewportToWorldPoint(Vector3.zero);
         Vector2 rightTopCorner = mainCamera.ViewportToWorldPoint(Vector3.one);
 
-        Debug.LogWarning(leftBottomCorner);
-        Debug.Log(rightTopCorner);
-
         left.transform.position = new Vector2(
             leftBottomCorner.x - 0.5f,
             mainCamera.transform.position.y
