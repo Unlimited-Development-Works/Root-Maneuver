@@ -84,7 +84,7 @@ public class RootPlacementController : MonoBehaviour
         if (collision.gameObject.CompareTag("Root"))
         {
             PlayerMovement playerMovement = player.gameObject.GetComponent<PlayerMovement>();
-            playerMovement.PlayRetractingSound();
+            playerMovement.PlayHitEffects();
             playerMovement.isRetracting = true;
             RetractRoots();
         }

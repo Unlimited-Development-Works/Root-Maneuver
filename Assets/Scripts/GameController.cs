@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static NutrientSpawner nutrientSpawner;
+    public static Screenshake screenshake;
 
     public Dictionary<string, int> scores = new Dictionary<string, int>();
     public TextMeshProUGUI scoreText;
@@ -16,6 +17,7 @@ public class GameController : MonoBehaviour
 
     void Awake() {
         GameController.nutrientSpawner = GameObject.FindFirstObjectByType<NutrientSpawner>();
+        GameController.screenshake = GameObject.FindFirstObjectByType<Screenshake>();
     }
 
     void Start()
