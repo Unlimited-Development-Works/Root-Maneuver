@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 25, y: -25}
-  m_SizeDelta: {x: 244.3, y: 118.3}
+  m_SizeDelta: {x: 244.3, y: 163.0218}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &267847771936486278
 CanvasRenderer:
@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1884264202318878434}
+  winFrame: {fileID: 0}
+  winText: {fileID: 0}
 --- !u!1 &1884264204019968065
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class TitleScreenController : MonoBehaviour
     {
         if (Input.GetButtonDown("Reset"))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("3_player");
         }
     }
 }
