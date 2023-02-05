@@ -139,6 +139,7 @@ MonoBehaviour:
   boostClips:
   - {fileID: 8300000, guid: 1c8ccad890348a9479d3ea05af1642d1, type: 3}
   - {fileID: 8300000, guid: 34e50cba9b17e804484bc15e23baf07f, type: 3}
+  hitRootClip: {fileID: 8300000, guid: de12996234d54d24e8e8dc45365903af, type: 3}
   rootController: {fileID: 8733362144731280266}
   isRetracting: 0
   isBoosting: 0

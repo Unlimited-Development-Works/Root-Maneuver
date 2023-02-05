@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource boostSoundSource;
     public List<AudioClip> boostClips = new List<AudioClip>();
+    public AudioClip hitRootClip;
 
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
@@ -110,6 +111,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * 300f * Time.deltaTime);
         }
 
+    }
+
+    public void PlayRetractingSound() {
+        boostSoundSource?.PlayOneShot(hitRootClip);
     }
 
     void Move()
