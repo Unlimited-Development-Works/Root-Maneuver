@@ -11,5 +11,10 @@ public class TitleScreenController : MonoBehaviour
         {
             SceneManager.LoadScene("3_player");
         }
+
+        if (Input.GetButtonDown("Select_2"))
+        {
+            SceneManager.LoadScene("2_player");
+        }
     }
 }
