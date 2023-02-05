@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource digSoundSource;
     public List<AudioClip> digClips = new List<AudioClip>();
 
+    public AudioSource boostSoundSource;
+    public List<AudioClip> boostClips = new List<AudioClip>();
+    public AudioClip hitRootClip;
+
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
 
@@ -76,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isBoosting = true;
                     boostStart = Time.time;
+                    if (boostSoundSource && !boostSoundSource.isPlaying) {
+                        boostSoundSource.clip = boostClips[UnityEngine.Random.Range(0, boostClips.Count)];
+                        boostSoundSource.Play();
+                    }
                 }
 
             }
@@ -103,6 +111,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * 300f * Time.deltaTime);
         }
 
+    }
+
+    public void PlayRetractingSound() {
+        boostSoundSource?.PlayOneShot(hitRootClip);
     }
 
     void Move()
