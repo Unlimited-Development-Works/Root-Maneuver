@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4811656901716386836, guid: 8ed005f18b6f1234fa36105d9778c0e1, type: 3}
+  plantPrefab: {fileID: 4011382290224895529, guid: dadc32cf8ec65ce4f84d81b7f4970229, type: 3}
   playerName: Player_1
+  playerColor: {r: 1, g: 1, b: 1, a: 1}

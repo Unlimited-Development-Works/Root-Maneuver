@@ -5,9 +5,18 @@ using UnityEngine;
 public class PlayerSpawnerController : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public string playerName = "Player_1";
+    public GameObject plantPrefab;
+    public string playerName;
+    public Color playerColor = Color.white;
+    private GameObject spawnedPlant;
     void Start()
     {
-        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject player = Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
+        spawnedPlant = Instantiate(plantPrefab, gameObject.transform.position, Quaternion.identity);
+        player.GetComponent<PlayerMovement>().playerName = playerName;
+        player.GetComponent<RootPlacementController>().playerName = playerName;
+        player.GetComponent<RootPlacementController>().plantController = spawnedPlant.GetComponent<PlantController>();
+        player.name = playerName;
+        player.GetComponent<SpriteRenderer>().color = playerColor;
     }
 }

@@ -6,14 +6,16 @@ TagManager:
   tags:
   - Root
   - Earth
+  - Nutrient
+  - Game
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tilemap
   - Water
   - UI
-  - 
+  - Roots
   - 
   - 
   - 
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer 2
+    uniqueID: 2295420607
     locked: 0
