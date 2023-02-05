@@ -12,7 +12,7 @@ public class PlayerSpawnerController : MonoBehaviour
     void Start()
     {
         GameObject player = Instantiate(playerPrefab, gameObject.transform.position, Quaternion.identity);
-        spawnedPlant = Instantiate(plantPrefab, gameObject.transform.position, Quaternion.identity);
+        spawnedPlant = Instantiate(plantPrefab, gameObject.transform.position + Vector3.up, Quaternion.identity);
         player.GetComponent<PlayerMovement>().playerName = playerName;
         player.GetComponent<RootPlacementController>().playerName = playerName;
         player.GetComponent<RootPlacementController>().plantController = spawnedPlant.GetComponent<PlantController>();

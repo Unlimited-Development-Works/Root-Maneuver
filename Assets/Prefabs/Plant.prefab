@@ -48,7 +48,6 @@ MonoBehaviour:
   currentGrowth: 0
   plantSpriteRenderer: {fileID: 4011382290461860105}
   plantSprites:
-  - {fileID: 21300000, guid: daacc71b9ce219043ac238ccf04d5a0a, type: 3}
   - {fileID: 21300000, guid: 63b3f57950942174a8f9f26b8ed483aa, type: 3}
   - {fileID: 21300000, guid: 3a2cf5e7ca4c72146844d3a855c7bca1, type: 3}
   - {fileID: 21300000, guid: bab882f013e7b2746a694c8c05dd480b, type: 3}
