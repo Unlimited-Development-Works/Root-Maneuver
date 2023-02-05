@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private float roundedY;
     public float rotationSpeed;
 
+    public ParticleSystem digParticles;
+
     public AudioSource digSoundSource;
     public List<AudioClip> digClips = new List<AudioClip>();
 
@@ -33,6 +35,12 @@ public class PlayerMovement : MonoBehaviour
     private float boostDuration = 1;
     private float boostCoolDown = 5;
     private float boostEnd = -5;
+
+    private ParticleSystem.MinMaxCurve baseDigEmissionRate;
+
+    void Start() {
+        baseDigEmissionRate = digParticles.emission.rateOverTime;
+    }
 
     void Update()
     {
@@ -120,9 +128,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+        var digParticlesMain = digParticles.main;
+        var digParticlesEmission = digParticles.emission;
         if (isBoosting)
         {
             rb.velocity = moveDirection * moveSpeed * boostValue;
+            if (rb.velocity.magnitude > 0) {
+                digParticlesEmission.rateOverTime = new ParticleSystem.MinMaxCurve(baseDigEmissionRate.constant * 5f);
+                if (!digParticles.isPlaying) {
+                    digParticles.Play();
+                }
+            }
             float boostLength = Time.time - boostStart;
             if (boostLength > boostDuration)
             {
@@ -132,7 +148,17 @@ public class PlayerMovement : MonoBehaviour
         } 
         else
         {
-            rb.velocity = moveDirection * moveSpeed;
+            if (rb.velocity.magnitude > 0) {
+                digParticlesEmission.rateOverTime = baseDigEmissionRate;
+                if (!digParticles.isPlaying) {
+                    digParticles.Play();
+                }
+            } else {
+                digParticles.Stop();
+            }
+            if (!isRetracting) {
+                rb.velocity = moveDirection * moveSpeed;
+            }
         } 
     }
 }
