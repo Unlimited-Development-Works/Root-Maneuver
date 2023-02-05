@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84199328394a5624e93902aecd504366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSpriteRenderer: {fileID: 0}
+  plantSpriteRenderer: {fileID: 4011382290461860105}
   plantSprites:
   - {fileID: 21300000, guid: 63b3f57950942174a8f9f26b8ed483aa, type: 3}
   - {fileID: 21300000, guid: 3a2cf5e7ca4c72146844d3a855c7bca1, type: 3}
@@ -65,7 +65,6 @@ MonoBehaviour:
   nutrientMultiplier: 5
   scaleBoost: 3
   targetGrowth: 0
-  currentGrowth: 0
 --- !u!1 &4011382290461860104
 GameObject:
   m_ObjectHideFlags: 0
