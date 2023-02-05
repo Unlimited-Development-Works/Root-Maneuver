@@ -30,10 +30,6 @@ public class PlayerMovement : MonoBehaviour
     private float boostCoolDown = 5;
     private float boostEnd = -5;
 
-    void Start() {
-        sounds = GetComponent<ChainedSounds>();
-    }
-
     void Update()
     {
         ProcessInputs();
@@ -124,9 +120,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity = moveDirection * moveSpeed;
-        }
-        
-
-       
+        } 
     }
 }
