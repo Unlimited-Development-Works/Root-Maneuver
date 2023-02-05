@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource digSoundSource;
     public List<AudioClip> digClips = new List<AudioClip>();
 
+    public AudioSource boostSoundSource;
+    public List<AudioClip> boostClips = new List<AudioClip>();
+
     private Vector2 moveDirection;
     private Vector2 rotateDirection;
 
@@ -76,6 +79,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isBoosting = true;
                     boostStart = Time.time;
+                    if (boostSoundSource && !boostSoundSource.isPlaying) {
+                        boostSoundSource.clip = boostClips[UnityEngine.Random.Range(0, boostClips.Count)];
+                        boostSoundSource.Play();
+                    }
                 }
 
             }
