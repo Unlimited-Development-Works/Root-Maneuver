@@ -140,19 +140,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff1d53d23c3d443438cc245b9f91a9ff, type: 3}
   collectionSoundSource: {fileID: 4170946138693483963}
   collectionClips:
-  - {fileID: 8300000, guid: 2085aa604b240784fb8b7efb9fb2c437, type: 3}
-  - {fileID: 8300000, guid: 79a64ec4065babd4ba2497f40e536b6c, type: 3}
-  - {fileID: 8300000, guid: 9c0f5be5de20c684288addbc216a7a1f, type: 3}
-  - {fileID: 8300000, guid: 66d956f5ef1fd7c4eb8518fae0bbd58f, type: 3}
   - {fileID: 8300000, guid: 150a0d4c829450b40a58dfdacb25fb8b, type: 3}
   - {fileID: 8300000, guid: 5e7933f6372bbde43aea5ebf2bdac9cc, type: 3}
   - {fileID: 8300000, guid: 108196f331f59144e8e4d76cd6a846f4, type: 3}
   - {fileID: 8300000, guid: cb26a079a90dfe943a9ab8eb30371405, type: 3}
   - {fileID: 8300000, guid: bda3dfb724e7a7d4eacff2e8efb8e8a3, type: 3}
-  - {fileID: 8300000, guid: 5736787b7f53a0643bb87161dded86e2, type: 3}
-  - {fileID: 8300000, guid: f33939ba02191b64090b4c1ef46d6df3, type: 3}
-  - {fileID: 8300000, guid: 260298fd4deeb6a4dac007ca46cfb89b, type: 3}
-  - {fileID: 8300000, guid: 2ff5fb1a68c1c8d49aeaad763513c2af, type: 3}
   boostSoundSource: {fileID: -4966415283393032658}
   boostClips:
   - {fileID: 8300000, guid: 1c8ccad890348a9479d3ea05af1642d1, type: 3}
